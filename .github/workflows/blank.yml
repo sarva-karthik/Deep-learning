@@ -17,10 +17,12 @@ jobs:
       - name: Setup Python
         uses: actions/setup-python@v2
         with:
-          python-version: '3.7'
+          python-version: '3.9'
           cache: 'pip'
       - name: Install Dependencies
-        run: pip install -r requirements.txt
+        run: |
+          python3 -m pip install --upgrade pip
+          pip install -r requirements.txt
       - name: Run Notebook via nbconvert
         run: |
           jupyter nbconvert --to script 833003241_DL_assign1.ipynb
