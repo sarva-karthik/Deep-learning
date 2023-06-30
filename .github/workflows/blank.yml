@@ -1,0 +1,29 @@
+name: Run Notebook Plot
+on:  
+  push:
+  branches: [ "main" ]
+  pull_request:
+    branches:
+      - main
+  schedule:
+    - cron: '0 0-21/3 * * *'
+  workflow_dispatch:
+jobs:
+  build:
+    name: Run Notebook for Deep learning
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.8'
+          cache: 'pip'
+      - name: Install Dependencies
+        run: pip install -r requirements.txt
+      - name: Run Notebook via nbconvert
+        run: |
+          jupyter nbconvert --to script 833003241_DL_assign1.ipynb
+          python3 833003241_DL_assign1.py
+
