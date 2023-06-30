@@ -23,12 +23,12 @@ jobs:
         run: |
           python3 -m pip install --upgrade pip
           pip install -r requirements.txt
-      - name: Create Python Script from Jupyter via nbconvert
+      - name: Create Python Script from Jupyter via nbconvert --> Run
         run: |
           cd Notebooks/
           jupyter nbconvert --output-dir='./' --to python 833003241_DL_assign1.ipynb
           ls -al
-      - name: Run script
-        run: |
-          python 833003241_DL_assign1.py
+          python3 833003241_DL_assign1.py
+
+          
 
