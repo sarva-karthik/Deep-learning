@@ -25,6 +25,7 @@ jobs:
           pip install -r requirements.txt
       - name: Run Notebook via nbconvert
         run: |
-          jupyter nbconvert --to script Notebooks/833003241_DL_assign1.ipynb
-          python3 Notebooks/833003241_DL_assign1.py
+          cd Notebooks/
+          jupyter nbconvert --to script 833003241_DL_assign1.ipynb
+          python3 833003241_DL_assign1.py
 
