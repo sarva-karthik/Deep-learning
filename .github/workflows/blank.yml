@@ -27,6 +27,7 @@ jobs:
         run: |
           cd Notebooks/
           jupyter nbconvert --output-dir='./' --to script 833003241_DL_assign1.ipynb
+          ls -al
       - name: Run script
         run: |
           python 833003241_DL_assign1.py
